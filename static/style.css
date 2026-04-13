@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Logo / Heading */
+.brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand h1 {
+    font-size: 1.8rem;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.brand p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    outline: none;
+    color: #1f2937;
+}
+
+input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+input.valid {
+    border-color: #10b981;
+}
+
+input.invalid {
+    border-color: #ef4444;
+}
+
+button {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+p {
+    margin-top: 1.2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Alerts */
+.alert {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.danger {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* Password strength */
+.password-strength {
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    height: 4px;
+    border-radius: 4px;
+    background: #e5e7eb;
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s, background 0.3s;
+    width: 0%;
+}
+
+.strength-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* Password requirements */
+.requirements {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.requirements.show {
+    display: block;
+}
+
+.req-item {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    padding: 0.2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+}
+
+.req-item.met {
+    color: #10b981;
+}
+
+.req-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d1d5db;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.req-item.met .dot {
+    background: #10b981;
+}
+
+/* Dashboard */
+.container.dashboard {
+    max-width: 620px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dashboard-header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h2 {
+    color: white;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.2);
+    color: white !important;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.3);
+    text-decoration: none !important;
+}
+
+.dashboard-body {
+    padding: 1.5rem 2rem;
+}
+
+.add-task-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.add-task-form input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.add-task-form button {
+    width: auto;
+    padding: 0.8rem 1.2rem;
+    margin-top: 0;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.2s;
+}
+
+.task-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.task-item.done {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.task-item.done .task-title {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.task-title {
+    font-size: 0.95rem;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.btn-complete {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-complete:hover {
+    background: #a7f3d0;
+    text-decoration: none;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+    text-decoration: none;
+}
+
+.no-tasks {
+    text-align: center;
+    color: #9ca3af;
+    padding: 3rem 0;
+    font-size: 0.95rem;
+}
+
+.task-count {
+    margin-top: 1.2rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.85rem;
+    padding-bottom: 0.5rem;
+}
+
+.divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 1.2rem 0;
+}

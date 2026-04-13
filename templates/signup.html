@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up — TaskManager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="brand">
+            <h1>✅ TaskFlow</h1>
+            <p>Organize your day, your way</p>
+        </div>
+
+        <h2>Create Account</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" id="signupForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" id="password" placeholder="Create a strong password" required />
+                <div class="password-strength">
+                    <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+                    <span class="strength-text" id="strengthText"></span>
+                </div>
+                <div class="requirements" id="requirements">
+                    <div class="req-item" id="req-length"><span class="dot"></span> At least 8 characters</div>
+                    <div class="req-item" id="req-upper"><span class="dot"></span> One uppercase letter (A-Z)</div>
+                    <div class="req-item" id="req-lower"><span class="dot"></span> One lowercase letter (a-z)</div>
+                    <div class="req-item" id="req-number"><span class="dot"></span> One number (0-9)</div>
+                    <div class="req-item" id="req-special"><span class="dot"></span> One special character (!@#$...)</div>
+                </div>
+            </div>
+            <button type="submit" id="submitBtn">Create Account</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

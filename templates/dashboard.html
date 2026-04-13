@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard — TaskFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container dashboard">
+        <div class="dashboard-header">
+            <h2>👋 Hey, {{ current_user.username }}!</h2>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+
+        <div class="dashboard-body">
+            <form method="POST" action="/add_task" class="add-task-form">
+                <input type="text" name="title" placeholder="What needs to be done?" required />
+                <button type="submit">+ Add</button>
+            </form>
+
+            <div class="divider"></div>
+
+            <div class="task-list">
+                {% if tasks %}
+                    {% for task in tasks %}
+                    <div class="task-item {% if task.done %}done{% endif %}">
+                        <span class="task-title">{{ task.title }}</span>
+                        <div class="task-actions">
+                            <a href="/complete_task/{{ task.id }}" class="btn-complete">
+                                {% if task.done %}↩ Undo{% else %}✔ Done{% endif %}
+                            </a>
+                            <a href="/delete_task/{{ task.id }}" class="btn-delete">🗑 Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-tasks">✨ No tasks yet! Add one above.</p>
+                {% endif %}
+            </div>
+
+            <div class="task-count">
+                {{ tasks | selectattr('done') | list | length }} / {{ tasks | length }} tasks completed
+            </div>
+        </div>
+    </div>
+</body>
+</html>
